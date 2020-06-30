@@ -1,0 +1,10 @@
+#+OPTIONS: toc:nil num:nil ^:nil
+#+TITLE: Modern language features
+#+AUTHOR: Bence Fábián <begnoc@gmail.com>
+
+Slides of a presentation given on some features cropping up in most
+languages.
+
+The slides are in [[file:slides.org][slides.org]] and the instrumentation are in [[file:presentation.el][presentation.el]].
+
+My emacs setup is at [[https://github.com/bencef/dotfiles]].
