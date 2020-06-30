@@ -1,0 +1,30 @@
+#+OPTIONS: toc:nil num:nil ^:nil
+#+TITLE: Modern language features
+#+AUTHOR: Bence Fábián <begnoc@gmail.com>
+
+* How we used to do programming
+
+  Structured programming:
+
+** Sequences
+
+   #+BEGIN_SRC python
+     a = foo()
+     b = bar(a)
+   #+END_SRC
+
+** Branches
+
+   #+BEGIN_SRC python
+     if something():
+         foo()
+     else:
+         bar()
+   #+END_SRC
+
+** Loops
+
+   #+BEGIN_SRC python
+     while something():
+         foo()
+   #+END_SRC
