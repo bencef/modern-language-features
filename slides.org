@@ -129,6 +129,7 @@
    - constraints
    - lists
    - streams
+   - synchronized states
 
 
    Scala example
