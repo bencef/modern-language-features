@@ -136,7 +136,53 @@
 * Case study: embedded languages
 
 ** Example 1
+
+   From the *Discord4j* examples
+
+   #+BEGIN_SRC java
+     final String token = args[0];
+     final DiscordClient client = DiscordClient.create(token);
+
+     client.withGateway(gateway -> {
+       final Publisher<?> pingPong = gateway.on(MessageCreateEvent.class, event ->
+         Mono.just(event.getMessage())
+           .filter(message -> "!ping".equals(message.getContent()))
+           .flatMap(Message::getChannel)
+           .flatMap(channel -> channel.createMessage("Pong!")));
+
+         final Publisher<?> onDisconnect = gateway.onDisconnect()
+           .doOnTerminate(() -> System.out.println("Disconnected!"));
+
+         return Mono.when(pingPong, onDisconnect);
+       }).block();
+   #+END_SRC
+
+** Example 1 in Kotlin
+
+   Same code in Kotlin (without the disconnect handler)
+
+   #+BEGIN_SRC kotlin
+     val token = args[0]
+     val client = DiscordClient.create(token)
+
+     client.withGateway {
+       mono {
+         it.on(MessageCreateEvent::class.java)
+           .asFlow()
+           .collect {
+             val message = it.message
+             if (message.content == "!ping") {
+               val channel = message.channel.awaitSingle()
+               channel.createMessage("Pong!").awaitSingle()
+             }
+           }
+       }
+     }
+     .block()
+   #+END_SRC
+
 ** Example 2
+** Example in Scala
 
 * Case study: more sophisticated types
 
@@ -144,6 +190,4 @@
 
 ** Higher kined types
 
-* TODO yield?
-
-* TODO pattern matching
+** Dependent types
