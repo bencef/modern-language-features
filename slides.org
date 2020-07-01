@@ -249,8 +249,10 @@
 
    #+BEGIN_SRC java
      interface Mappable<F<?>, T> {
-         <U> F<U> map(F<T> original, Function<T, U> mapper);
+         <U> F<U> map(Function<T, U> mapper);
      }
+
+     interface Stream<T> extends Mappable<Stream<T>, T> {}
    #+END_SRC
 
 ** Dependent types
