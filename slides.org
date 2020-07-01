@@ -252,7 +252,7 @@
          <U> F<U> map(Function<T, U> mapper);
      }
 
-     interface Stream<T> extends Mappable<Stream<T>, T> {}
+     interface Stream<T> extends Mappable<Stream<?>, T> {}
    #+END_SRC
 
 ** Dependent types
