@@ -76,7 +76,65 @@
 
 ** Comprehensions
 
+   #+BEGIN_SRC python
+     board_indices = [(row_i, col_i)
+                      for row_i in range(0, 3)
+                      for col_i in range(0, 3)]
+   #+END_SRC
+
+** Comprehensions revisited
+
+   What if they looked like this?
+
+   #+BEGIN_SRC python
+     list_mode def get_board_indices():
+         row_i = list_get range(0, 3)
+         col_i = list_get range(0, 3)
+         return (row_i, col_i)
+   #+END_SRC
+
+   Contrast to
+
+   #+BEGIN_SRC python
+     async def foo():
+         res1 = await bar()
+         res2 = await baz(res1)
+         return res2
+   #+END_SRC
+
+** Custom contexts
+
+   This was called "overloading the semicolon" by Philip Wadler.
+
+   More and more languages let you do this.
+   Async is from a library in F# and not a language feature:
+
+   #+BEGIN_SRC fsharp
+     let fetchAndDownload url =
+         async {
+             let! data = downloadData url
+
+             let processedData = processData data
+
+             return processedData
+         }
+   #+END_SRC
+
+   =async= is the name of an object here, not a keyword.
+
+** Examples of contexts
+
+   - async
+   - optional
+   - constraints
+
+
+   Scala example
+
 * Case study: embedded languages
+
+** Example 1
+** Example 2
 
 * Case study: more sophisticated types
 

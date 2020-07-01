@@ -1,7 +1,9 @@
 
 
-* Modern language features
+* Modern¹ language features
 
   What are some features finding their way to most programming languages?
 
   Where are they coming from?
+
+  [1] invented in the 80s
