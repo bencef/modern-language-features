@@ -21,6 +21,10 @@
                 (demo-it-presentation "slides.org")
                 demo-it-presentation-advance
                 demo-it-presentation-advance
+                demo-it-presentation-advance
+                demo-it-presentation-advance
+                demo-it-presentation-advance
+                demo-it-presentation-advance
                 demo-it-presentation-advance)
 
 (demo-it-start)

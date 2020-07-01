@@ -28,3 +28,62 @@
      while something():
          foo()
    #+END_SRC
+
+* Structured programming
+
+  These can be combined to write most programs
+
+  #+BEGIN_SRC python
+    import math
+
+    def get_max(numbers):
+        max = -math.inf
+        for number in numbers:
+            if number > max:
+                max = number
+        return max
+  #+END_SRC
+
+* Structured programming
+
+  =goto= statements still abound in large =C= codebases.
+
+** For error recovery
+
+   Exceptions have been added to most modern languages to handle these
+   cases.
+
+** Implementing state machines
+
+   Polymorphism can be used in modern languages to handle these cases.
+
+* The way forward so far
+
+  We've been piling on language features on top of each other.
+
+  And implementing design patterns by hand.
+
+* Case study: computational contexts
+
+** Async
+
+   #+BEGIN_SRC python
+     async def foo():
+         res1 = await bar()
+         res2 = await baz(res1)
+         return res2
+   #+END_SRC
+
+** Comprehensions
+
+* Case study: embedded languages
+
+* Case study: more sophisticated types
+
+** Linearity
+
+** Higher kined types
+
+* TODO yield?
+
+* TODO pattern matching
