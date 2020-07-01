@@ -182,12 +182,80 @@
    #+END_SRC
 
 ** Example 2
+
+   Spring security configuration. Courtesy of Balázs Faragó.
+
+   #+BEGIN_SRC java
+     @Override
+     protected void configure(HttpSecurity http) throws Exception {
+         http.csrf().disable()
+             .httpBasic().disable()
+             .cors().and()
+             .sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS).and()
+             .addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class)
+             .authorizeRequests()
+             .antMatchers("/auth/login").permitAll()
+             .antMatchers("/protected-hello").hasRole("ADMIN")
+             .anyRequest().authenticated();
+     }
+   #+END_SRC
+
 ** Example in Scala
+
+   Unit test from the =scala/scala-seed= template.
+
+   #+BEGIN_SRC scala
+     class HelloSpec extends AnyFlatSpec with Matchers {
+       "The Hello object" should "say hello" in {
+         Hello.greeting shouldEqual "hello"
+       }
+     }
+   #+END_SRC
 
 * Case study: more sophisticated types
 
 ** Linearity
 
+   "OOP mirrors the real world"
+
+   #+BEGIN_SRC java
+     var coin = new Coin();
+     var banana1 = vendingMachine.getBanana(coin);
+     var banana2 = vendingMachine.getBanana(coin);
+   #+END_SRC
+
+   Two bananas for one coin.  Not bad.
+
 ** Higher kined types
 
+   What's the type of =map=, =flatMap=, etc?
+
+   in java:
+
+   #+BEGIN_SRC java
+     interface Stream<T> {
+         <U> Stream<U> map(Function<T, U> mapper);
+     }
+   #+END_SRC
+
+   How to make Stream into a type parameter too?
+
+   We need to constrain that it is such a generic type that takes a
+   type parameter.
+
+   #+BEGIN_SRC java
+     interface Mappable<F<?>, T> {
+         <U> F<U> map(F<T> original, Function<T, U> mapper);
+     }
+   #+END_SRC
+
 ** Dependent types
+
+   Clearing the distinction between types and values.
+
+   Examples:
+   - Length of an array can be part of the type
+   - type-level proof that an input list is sorted
+
+
+   More sophisticated types => better IDE support.
