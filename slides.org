@@ -233,7 +233,7 @@
    - resource handling: no more forgetting =with= / =using= blocks.
    - Clearer semantics for DSLs
 
-** Higher kined types
+** Higher kinded types
 
    What's the type of =map=, =flatMap=, etc?
 
