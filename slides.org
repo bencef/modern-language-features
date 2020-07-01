@@ -212,6 +212,8 @@
      }
    #+END_SRC
 
+   Scala demo
+
 * Case study: more sophisticated types
 
 ** Linearity
