@@ -226,6 +226,10 @@
 
    Two bananas for one coin.  Not bad.
 
+   Might seem nit-picky but there are real-world applications:
+   - resource handling: no more forgetting =with= / =using= blocks.
+   - Clearer semantics for DSLs
+
 ** Higher kined types
 
    What's the type of =map=, =flatMap=, etc?
